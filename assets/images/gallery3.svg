@@ -1,0 +1,27 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="car" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffaa00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <rect y="220" width="400" height="80" fill="#1a1a1a"/>
+  <line x1="0" y1="240" x2="400" y2="240" stroke="#ffff00" stroke-width="2" stroke-dasharray="30,20"/>
+  
+  <!-- Luxury Car -->
+  <ellipse cx="200" cy="200" rx="108" ry="42" fill="url(#car)"/>
+  <path d="M 130 145 Q 200 120 270 145 L 255 200 L 145 200 Z" fill="url(#car)"/>
+  <rect x="150" y="160" width="50" height="30" rx="6" fill="#4a7ba7" opacity="0.8"/>
+  <rect x="200" y="160" width="50" height="30" rx="6" fill="#4a7ba7" opacity="0.8"/>
+  <circle cx="155" cy="215" r="26" fill="#333"/>
+  <circle cx="155" cy="215" r="14" fill="#666"/>
+  <circle cx="245" cy="215" r="26" fill="#333"/>
+  <circle cx="245" cy="215" r="14" fill="#666"/>
+  <rect x="130" y="200" width="140" height="3" fill="#c0c0c0"/>
+  <text x="200" y="290" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Luxury Vehicles</text>
+</svg>

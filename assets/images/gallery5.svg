@@ -1,0 +1,24 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f6ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <rect y="220" width="400" height="80" fill="#444"/>
+  <line x1="0" y1="240" x2="400" y2="240" stroke="#ffff00" stroke-width="2" stroke-dasharray="30,20"/>
+  
+  <!-- Van -->
+  <ellipse cx="200" cy="200" rx="115" ry="50" fill="#d2691e"/>
+  <rect x="110" y="130" width="180" height="80" rx="10" fill="#d2691e"/>
+  <rect x="130" y="150" width="50" height="50" rx="6" fill="#87ceeb"/>
+  <rect x="220" y="150" width="50" height="50" rx="6" fill="#87ceeb"/>
+  <line x1="200" y1="130" x2="200" y2="210" stroke="#333" stroke-width="2"/>
+  <rect x="110" y="175" width="180" height="40" fill="#a0522d"/>
+  <circle cx="155" cy="220" r="30" fill="#333"/>
+  <circle cx="155" cy="220" r="16" fill="#666"/>
+  <circle cx="245" cy="220" r="30" fill="#333"/>
+  <circle cx="245" cy="220" r="16" fill="#666"/>
+  <text x="200" y="290" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Van Services</text>
+</svg>
