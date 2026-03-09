@@ -1,6 +1,7 @@
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const isMobileView = () => window.innerWidth <= 480;
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
@@ -12,16 +13,23 @@ if (hamburger) {
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(item => {
     item.addEventListener('click', () => {
-        navLinks.style.display = 'none';
+        if (isMobileView()) {
+            navLinks.style.display = 'none';
+        }
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling only for valid in-page anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (!href || href === '#') {
+            return;
+        }
+
+        const target = document.querySelector(href);
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -120,8 +128,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all service cards and contact info
-document.querySelectorAll('.service-card, .contact-info, .info-box').forEach(element => {
+// Observe homepage cards and panels
+document.querySelectorAll('.service-card, .contact-info, .info-box, .metric-card, .showcase-panel, .commitment-card').forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -135,7 +143,6 @@ window.addEventListener('scroll', () => {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
@@ -143,7 +150,9 @@ window.addEventListener('scroll', () => {
     
     document.querySelectorAll('.nav-links > li > a').forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
+        const href = link.getAttribute('href') || '';
+        const targetId = href.includes('#') ? href.split('#')[1] : '';
+        if (targetId === current) {
             link.classList.add('active');
         }
     });
