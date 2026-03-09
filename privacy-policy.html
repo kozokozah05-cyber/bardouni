@@ -1,69 +1,727 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Privacy Policy - BEN AHMED RENT CAR</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy - BEN AHMED RENT CAR</title>
+  <meta name="description" content="Privacy Policy for BEN AHMED RENT CAR Android application." />
+  <style>
+    :root{
+      --bg-1:#08111f;
+      --bg-2:#0f1f38;
+      --card:rgba(255,255,255,0.08);
+      --card-strong:rgba(255,255,255,0.12);
+      --border:rgba(255,255,255,0.16);
+      --text:#eef4ff;
+      --muted:#b8c4db;
+      --accent:#66c2ff;
+      --accent-2:#8effc1;
+      --gold:#ffd46b;
+      --shadow:0 20px 60px rgba(0,0,0,0.35);
+      --radius:24px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(102,194,255,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(142,255,193,0.12), transparent 25%),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2) 55%, #091522);
+      min-height:100vh;
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    .bg-glow{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      overflow:hidden;
+    }
+
+    .orb{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.35;
+      animation:float 10s ease-in-out infinite;
+    }
+
+    .orb.one{
+      width:260px;
+      height:260px;
+      background:#3ba8ff;
+      top:8%;
+      left:-60px;
+    }
+
+    .orb.two{
+      width:300px;
+      height:300px;
+      background:#55ffb0;
+      bottom:10%;
+      right:-80px;
+      animation-delay:2s;
+    }
+
+    .orb.three{
+      width:180px;
+      height:180px;
+      background:#ffd46b;
+      top:50%;
+      left:55%;
+      animation-delay:4s;
+    }
+
+    @keyframes float{
+      0%,100%{ transform:translateY(0) translateX(0); }
+      50%{ transform:translateY(-22px) translateX(16px); }
+    }
+
+    .container{
+      width:min(1100px, calc(100% - 32px));
+      margin:40px auto 60px;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border:1px solid var(--border);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      padding:34px 28px 28px;
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(110deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform:translateX(-100%);
+      animation:shine 5.5s linear infinite;
+    }
+
+    @keyframes shine{
+      to{ transform:translateX(100%); }
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(102,194,255,0.12);
+      border:1px solid rgba(102,194,255,0.25);
+      color:#dff3ff;
+      font-size:.93rem;
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .badge-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 12px rgba(102,194,255,0.6);
+    }
+
+    h1{
+      font-size:clamp(2rem, 4vw, 3.4rem);
+      line-height:1.08;
+      letter-spacing:-0.03em;
+      margin-bottom:14px;
+    }
+
+    .hero p.lead{
+      color:var(--muted);
+      font-size:1.05rem;
+      max-width:780px;
+    }
+
+    .hero-meta{
+      margin-top:22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .meta-card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid var(--border);
+      padding:12px 14px;
+      border-radius:18px;
+      min-width:180px;
+    }
+
+    .meta-card small{
+      display:block;
+      color:var(--muted);
+      margin-bottom:3px;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:22px;
+      margin-top:24px;
+    }
+
+    .sidebar,
+    .content-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:28px;
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);
+    }
+
+    .sidebar{
+      position:sticky;
+      top:20px;
+      align-self:start;
+      padding:22px;
+    }
+
+    .sidebar h2{
+      font-size:1.05rem;
+      margin-bottom:16px;
+    }
+
+    .toc{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      margin-bottom:22px;
+    }
+
+    .toc a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--text);
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid transparent;
+      transition:.25s ease;
+      background:rgba(255,255,255,0.03);
+    }
+
+    .toc a:hover,
+    .toc a.active{
+      background:rgba(102,194,255,0.12);
+      border-color:rgba(102,194,255,0.25);
+      transform:translateX(4px);
+    }
+
+    .toc-num{
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:.82rem;
+      font-weight:700;
+      background:linear-gradient(135deg, rgba(102,194,255,0.24), rgba(142,255,193,0.18));
+      color:#fff;
+      flex-shrink:0;
+    }
+
+    .contact-box{
+      padding:16px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border:1px solid var(--border);
+    }
+
+    .contact-box h3{
+      font-size:1rem;
+      margin-bottom:10px;
+    }
+
+    .contact-box p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .contact-links{
+      margin-top:12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .contact-links a{
+      text-decoration:none;
+      color:var(--text);
+      background:rgba(255,255,255,0.05);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      transition:.25s ease;
+      word-break:break-word;
+    }
+
+    .contact-links a:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    .content-card{
+      padding:24px;
+    }
+
+    .section{
+      padding:22px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      margin-bottom:18px;
+      transition:.3s ease;
+    }
+
+    .section:hover{
+      background:rgba(255,255,255,0.045);
+      transform:translateY(-2px);
+    }
+
+    .section h3{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:1.25rem;
+      margin-bottom:14px;
+    }
+
+    .section-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      color:#07111f;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow:0 8px 18px rgba(102,194,255,0.22);
+      flex-shrink:0;
+    }
+
+    .section p{
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .policy-list{
+      list-style:none;
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .policy-list li{
+      position:relative;
+      padding:12px 14px 12px 44px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.07);
+      color:var(--text);
+    }
+
+    .policy-list li::before{
+      content:"✓";
+      position:absolute;
+      left:15px;
+      top:10px;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(142,255,193,0.18);
+      color:var(--accent-2);
+      font-weight:800;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .info-item{
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-item strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:.9rem;
+      color:#ffffff;
+    }
+
+    .info-item span, .info-item a{
+      color:var(--muted);
+      text-decoration:none;
+      word-break:break-word;
+    }
+
+    .footer{
+      margin-top:20px;
+      padding:20px 16px 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .top-btn{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#06111d;
+      font-size:1.2rem;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 16px 30px rgba(0,0,0,0.28);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:.3s ease;
+      z-index:5;
+    }
+
+    .top-btn.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      margin:18px 0;
+    }
+
+    @media (max-width: 920px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:relative;
+        top:0;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{
+        width:min(100% - 18px, 1100px);
+        margin:14px auto 28px;
+      }
+
+      .hero,
+      .sidebar,
+      .content-card{
+        border-radius:22px;
+      }
+
+      .hero{
+        padding:24px 18px;
+      }
+
+      .sidebar,
+      .content-card{
+        padding:16px;
+      }
+
+      .section{
+        padding:16px;
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .meta-card{
+        width:100%;
+      }
+    }
+  </style>
 </head>
 <body>
-<h2>Privacy Policy - BEN AHMED RENT CAR</h2>
-<p>Last updated: March 9, 2026</p>
+  <div class="bg-glow">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
 
-<p>This Privacy Policy explains how the BEN AHMED RENT CAR Android application handles information.</p>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Privacy Policy
+      </div>
 
-<h3>1. Developer and Contact</h3>
-<p>Business name: BEN AHMED RENT CAR<br>
-Phone: +212677396857<br>
-Email: kozokozah05@gmail.com<br>
-Address: CHEZ MEAFSNAKS IMM 71 REZ DE CHAUSSE MAGAZIN 3 RESIDENCE DOHA SAL, Sale, Morocco<br>
-DUNS Number: 367472850</p>
+      <h1>BEN AHMED RENT CAR</h1>
+      <p class="lead">
+        This Privacy Policy explains how the BEN AHMED RENT CAR Android application handles information,
+        what stays on the device, and what is not collected or shared.
+      </p>
 
-<h3>2. What the App Does</h3>
-<p>The app lets users view the vehicle catalog, open vehicle details, prepare local rental estimates, save request details on the device, export local request records, and contact BEN AHMED RENT CAR by phone or email.</p>
-<p>The app does not process payments, does not automatically confirm rentals, and does not create a server-side booking through the app. Final confirmation is handled directly with BEN AHMED RENT CAR outside the app.</p>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <small>Last Updated</small>
+          <span>March 9, 2026</span>
+        </div>
+        <div class="meta-card">
+          <small>App Type</small>
+          <span>Offline Android App</span>
+        </div>
+        <div class="meta-card">
+          <small>Data Model</small>
+          <span>Local Device Storage</span>
+        </div>
+      </div>
+    </section>
 
-<h3>3. Information Stored on the Device</h3>
-<p>The app may store the following information locally on the device for app functionality:</p>
-<ul>
-<li>selected vehicle information;</li>
-<li>rental dates entered by the user;</li>
-<li>local estimate values such as rental total, deposit estimate, and extra kilometer estimate;</li>
-<li>optional notes entered by the user;</li>
-<li>local pricing preference values, such as extra kilometer cost;</li>
-<li>an onboarding preference that remembers whether the welcome screen was already shown.</li>
-</ul>
-<p>This information is stored locally inside the app's normal Android storage area.</p>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Quick Navigation</h2>
+        <ul class="toc" id="toc">
+          <li><a href="#section1"><span class="toc-num">1</span><span>Developer and Contact</span></a></li>
+          <li><a href="#section2"><span class="toc-num">2</span><span>What the App Does</span></a></li>
+          <li><a href="#section3"><span class="toc-num">3</span><span>Information Stored</span></a></li>
+          <li><a href="#section4"><span class="toc-num">4</span><span>Data Collection and Sharing</span></a></li>
+          <li><a href="#section5"><span class="toc-num">5</span><span>User-Initiated Actions</span></a></li>
+          <li><a href="#section6"><span class="toc-num">6</span><span>Permissions and Access</span></a></li>
+          <li><a href="#section7"><span class="toc-num">7</span><span>Retention and Deletion</span></a></li>
+          <li><a href="#section8"><span class="toc-num">8</span><span>Security</span></a></li>
+          <li><a href="#section9"><span class="toc-num">9</span><span>Children</span></a></li>
+          <li><a href="#section10"><span class="toc-num">10</span><span>Changes to This Policy</span></a></li>
+        </ul>
 
-<h3>4. Data Collection and Sharing</h3>
-<p>The app does not collect personal data on BEN AHMED RENT CAR servers through the app.</p>
-<p>The app does not use analytics SDKs, advertising SDKs, tracking SDKs, crash reporting SDKs, profiling tools, or background data collection.</p>
-<p>The app does not send local request records, notes, or local settings to BEN AHMED RENT CAR or to third parties from inside the app.</p>
+        <div class="contact-box">
+          <h3>Business Contact</h3>
+          <p>Official contact details for BEN AHMED RENT CAR.</p>
 
-<h3>5. User-Initiated Device Actions</h3>
-<p>The app includes Android actions started by the user, such as:</p>
-<ul>
-<li>opening the phone dialer to call the business;</li>
-<li>opening the email app to contact the business;</li>
-<li>copying business contact information to the device clipboard;</li>
-<li>exporting local request data to a text file using the Android document picker;</li>
-<li>sharing business summary text using Android sharing.</li>
-</ul>
-<p>These actions only occur when the user starts them.</p>
+          <div class="contact-links">
+            <a href="tel:+212677396857">📞 +212677396857</a>
+            <a href="mailto:kozokozah05@gmail.com">✉️ kozokozah05@gmail.com</a>
+          </div>
+        </div>
+      </aside>
 
-<h3>6. Permissions and Access</h3>
-<p>The app does not request dangerous Android permissions such as location, camera, microphone, contacts, SMS, call logs, or broad storage access.</p>
-<p>The app does not require account registration, password login, or identity verification to use its main features.</p>
+      <section class="content-card">
+        <article class="section" id="section1">
+          <h3><span class="section-icon">1</span>Developer and Contact</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Business Name</strong>
+              <span>BEN AHMED RENT CAR</span>
+            </div>
+            <div class="info-item">
+              <strong>Phone</strong>
+              <a href="tel:+212677396857">+212677396857</a>
+            </div>
+            <div class="info-item">
+              <strong>Email</strong>
+              <a href="mailto:kozokozah05@gmail.com">kozokozah05@gmail.com</a>
+            </div>
+            <div class="info-item">
+              <strong>DUNS Number</strong>
+              <span>367472850</span>
+            </div>
+            <div class="info-item" style="grid-column:1 / -1;">
+              <strong>Address</strong>
+              <span>CHEZ MEAFSNAKS IMM 71 REZ DE CHAUSSE MAGAZIN 3 RESIDENCE DOHA SAL, Sale, Morocco</span>
+            </div>
+          </div>
+        </article>
 
-<h3>7. Retention and Deletion</h3>
-<p>Locally stored app information remains on the device until the user deletes it from the app settings, clears app data through Android, or uninstalls the app.</p>
-<p>The Settings screen includes controls to export local data and to delete saved local requests and local preferences.</p>
+        <article class="section" id="section2">
+          <h3><span class="section-icon">2</span>What the App Does</h3>
+          <p>
+            The app lets users view the vehicle catalog, open vehicle details, prepare local rental estimates,
+            save request details on the device, export local request records, and contact BEN AHMED RENT CAR
+            by phone or email.
+          </p>
+          <p>
+            The app does not process payments, does not automatically confirm rentals, and does not create a
+            server-side booking through the app. Final confirmation is handled directly with BEN AHMED RENT CAR
+            outside the app.
+          </p>
+        </article>
 
-<h3>8. Security</h3>
-<p>The app stores local records inside the app's standard Android storage environment. No mobile application can guarantee absolute security on every device, so users should avoid placing unnecessary sensitive personal information in optional notes.</p>
+        <article class="section" id="section3">
+          <h3><span class="section-icon">3</span>Information Stored on the Device</h3>
+          <p>
+            The app may store the following information locally on the device for app functionality:
+          </p>
+          <ul class="policy-list">
+            <li>Selected vehicle information.</li>
+            <li>Rental dates entered by the user.</li>
+            <li>Local estimate values such as rental total, deposit estimate, and extra kilometer estimate.</li>
+            <li>Optional notes entered by the user.</li>
+            <li>Local pricing preference values, such as extra kilometer cost.</li>
+            <li>An onboarding preference that remembers whether the welcome screen was already shown.</li>
+          </ul>
+          <div class="divider"></div>
+          <p>
+            This information is stored locally inside the app's normal Android storage area.
+          </p>
+        </article>
 
-<h3>9. Children</h3>
-<p>The app is not directed to children and is not designed as a child-focused service.</p>
+        <article class="section" id="section4">
+          <h3><span class="section-icon">4</span>Data Collection and Sharing</h3>
+          <p>
+            The app does not collect personal data on BEN AHMED RENT CAR servers through the app.
+          </p>
+          <ul class="policy-list">
+            <li>The app does not use analytics SDKs.</li>
+            <li>The app does not use advertising SDKs.</li>
+            <li>The app does not use tracking SDKs or profiling tools.</li>
+            <li>The app does not use crash reporting SDKs.</li>
+            <li>The app does not perform background data collection.</li>
+            <li>The app does not send local request records, notes, or local settings to BEN AHMED RENT CAR or third parties from inside the app.</li>
+          </ul>
+        </article>
 
-<h3>10. Changes to This Policy</h3>
-<p>If this Privacy Policy changes, the updated version should be published with a new date.</p>
+        <article class="section" id="section5">
+          <h3><span class="section-icon">5</span>User-Initiated Device Actions</h3>
+          <p>
+            The app includes Android actions started by the user, such as:
+          </p>
+          <ul class="policy-list">
+            <li>Opening the phone dialer to call the business.</li>
+            <li>Opening the email app to contact the business.</li>
+            <li>Copying business contact information to the device clipboard.</li>
+            <li>Exporting local request data to a text file using the Android document picker.</li>
+            <li>Sharing business summary text using Android sharing.</li>
+          </ul>
+          <div class="divider"></div>
+          <p>
+            These actions only occur when the user starts them.
+          </p>
+        </article>
+
+        <article class="section" id="section6">
+          <h3><span class="section-icon">6</span>Permissions and Access</h3>
+          <p>
+            The app does not request dangerous Android permissions such as location, camera, microphone,
+            contacts, SMS, call logs, or broad storage access.
+          </p>
+          <p>
+            The app does not require account registration, password login, or identity verification to use its
+            main features.
+          </p>
+        </article>
+
+        <article class="section" id="section7">
+          <h3><span class="section-icon">7</span>Retention and Deletion</h3>
+          <p>
+            Locally stored app information remains on the device until the user deletes it from the app settings,
+            clears app data through Android, or uninstalls the app.
+          </p>
+          <p>
+            The Settings screen includes controls to export local data and to delete saved local requests and
+            local preferences.
+          </p>
+        </article>
+
+        <article class="section" id="section8">
+          <h3><span class="section-icon">8</span>Security</h3>
+          <p>
+            The app stores local records inside the app's standard Android storage environment. No mobile
+            application can guarantee absolute security on every device, so users should avoid placing
+            unnecessary sensitive personal information in optional notes.
+          </p>
+        </article>
+
+        <article class="section" id="section9">
+          <h3><span class="section-icon">9</span>Children</h3>
+          <p>
+            The app is not directed to children and is not designed as a child-focused service.
+          </p>
+        </article>
+
+        <article class="section" id="section10">
+          <h3><span class="section-icon">10</span>Changes to This Policy</h3>
+          <p>
+            If this Privacy Policy changes, the updated version should be published with a new date.
+          </p>
+        </article>
+      </section>
+    </div>
+
+    <footer class="footer">
+      © 2026 BEN AHMED RENT CAR — Privacy Policy
+    </footer>
+  </main>
+
+  <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll(".section");
+    const navLinks = document.querySelectorAll(".toc a");
+    const topBtn = document.getElementById("topBtn");
+
+    function setActiveLink() {
+      let currentId = "";
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 160) currentId = section.id;
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + currentId);
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      setActiveLink();
+
+      if (window.scrollY > 280) {
+        topBtn.classList.add("show");
+      } else {
+        topBtn.classList.remove("show");
+      }
+    });
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    setActiveLink();
+  </script>
 </body>
 </html>
